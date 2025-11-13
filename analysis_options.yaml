@@ -1,0 +1,45 @@
+# The analysis has been modified by FlutterPP in accordance with our recommendations.
+# Customize the adjustments as necessary for your project.
+
+include: package:flutter_lints/flutter.yaml
+
+analyzer:
+  errors:
+    invalid_annotation_target: ignore
+  language:
+    strict-casts: true
+    strict-raw-types: true
+  exclude:
+    - '**/*.freezed.dart'
+    - '**/*.g.dart'
+
+linter:
+  rules:
+    - sort_unnamed_constructors_first
+    - sort_constructors_first
+    - prefer_const_constructors
+    - use_key_in_widget_constructors
+    - avoid_unused_constructor_parameters
+    - always_use_package_imports
+    - directives_ordering
+    - combinators_ordering
+    - depend_on_referenced_packages
+    - avoid_web_libraries_in_flutter
+    - unrelated_type_equality_checks
+    - avoid_types_on_closure_parameters
+    - prefer_void_to_null
+    - prefer_single_quotes
+    - require_trailing_commas
+    - noop_primitive_operations
+    - use_super_parameters
+    - avoid_redundant_argument_values
+    - avoid_renaming_method_parameters
+    - avoid_private_typedef_functions
+    - avoid_void_async
+    - cancel_subscriptions
+    - cascade_invocations
+    - no_runtimeType_toString
+    - prefer_const_declarations
+    - prefer_final_locals
+    - sort_child_properties_last
+    - unnecessary_breaks

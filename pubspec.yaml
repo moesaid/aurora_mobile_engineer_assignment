@@ -1,0 +1,58 @@
+name: aurora
+description: "A new Flutter project."
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.9.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  get: ^4.7.2
+  get_storage: ^2.1.1
+  freezed_annotation: ^3.1.0
+  json_annotation: ^4.9.0
+  flutter_animate: ^4.5.2
+  flutter_svg: ^2.2.2
+  audioplayers: ^6.5.1
+  vibration: ^3.1.4
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+  build_runner: ^2.10.2
+  freezed: ^3.2.3
+  json_serializable: ^6.11.1
+
+
+
+
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
+    - assets/svgs/
+    - assets/sounds/
+
+  fonts:
+    - family: Hellix-Medium
+      fonts:
+        - asset: fonts/Hellix-Regular.ttf
+          weight: 400
+        - asset: fonts/Hellix-RegularItalic.ttf
+          weight: 400
+          style: italic
+        - asset: fonts/Hellix-Medium.ttf
+          weight: 500
+        - asset: fonts/Hellix-MediumItalic.ttf
+          weight: 500
+          style: italic
+        - asset: fonts/Hellix-Bold.ttf
+          weight: 700
+        - asset: fonts/Hellix-BoldItalic.ttf
+          weight: 700
+          style: italic
