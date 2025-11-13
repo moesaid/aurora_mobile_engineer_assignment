@@ -1,6 +1,5 @@
 import 'package:aurora/Storage/theme_mode_storage.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 class ThemeController extends GetxController {
@@ -18,8 +17,6 @@ class ThemeController extends GetxController {
   }
 
   Future<void> _intController() async {
-    SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
-
     // load saved theme mode from storage
     final savedMode = themeModeStorage.read();
     _themeMode.value = savedMode;

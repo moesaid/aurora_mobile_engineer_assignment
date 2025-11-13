@@ -14,7 +14,12 @@ class HomePage extends GetView<HomeController> {
       initState: (_) {},
       builder: (_) {
         return Scaffold(
-          appBar: AppBar(title: const Text('Home Page')),
+          appBar: AppBar(
+            leading: IconButton(
+              onPressed: ThemeController.instance.toggleThemeMode,
+              icon: const Icon(Icons.brightness_4),
+            ),
+          ),
           body: SafeArea(
             child: SizedBox.expand(
               child: Column(
