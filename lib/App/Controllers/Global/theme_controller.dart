@@ -25,8 +25,6 @@ class ThemeController extends GetxController {
 
   // toggle theme mode
   void toggleThemeMode() {
-    print('Toggling theme mode from ${_themeMode.value}');
-
     if (_themeMode.value == ThemeMode.dark) {
       Get.changeThemeMode(ThemeMode.light);
       themeModeStorage.write(ThemeMode.light);
@@ -38,7 +36,5 @@ class ThemeController extends GetxController {
     }
 
     update();
-
-    print('Theme mode changed to ${_themeMode.value}');
   }
 }
