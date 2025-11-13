@@ -36,7 +36,7 @@ class BuildImageCard extends StatelessWidget {
       height: size,
       clipBehavior: Clip.hardEdge,
       decoration: BoxDecoration(
-        color: Theme.of(context).colorScheme.surfaceContainerHighest,
+        color: Colors.transparent,
         borderRadius: BorderRadius.circular(context.width * 0.03),
         boxShadow: [
           BoxShadow(
