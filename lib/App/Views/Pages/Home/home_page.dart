@@ -1,6 +1,7 @@
 import 'package:aurora/App/Controllers/Global/theme_controller.dart';
 import 'package:aurora/App/Controllers/Home/home_controller.dart';
 import 'package:aurora/App/Views/Global/Organisms/build_image_card.dart';
+import 'package:aurora/Helpers/color_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:get/get.dart';
@@ -22,8 +23,21 @@ class HomePage extends GetView<HomeController> {
                 width: double.infinity,
                 height: context.height,
                 padding: EdgeInsets.all(context.width * 0.05),
-                color:
-                    controller.bgColor ?? Theme.of(context).colorScheme.surface,
+                decoration: BoxDecoration(
+                  gradient: controller.bgColor == null
+                      ? null
+                      : LinearGradient(
+                          colors: [
+                            ColorHelper.lighten(controller.bgColor!, 0.2),
+                            ColorHelper.darken(controller.bgColor!),
+                          ],
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                        ),
+                  color:
+                      controller.bgColor ??
+                      Theme.of(context).colorScheme.surface,
+                ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -37,21 +51,35 @@ class HomePage extends GetView<HomeController> {
                     FilledButton.icon(
                       onPressed: controller.fetchRandomImage,
                       style: FilledButton.styleFrom(
-                        backgroundColor: Theme.of(context).colorScheme.primary,
-                        textStyle: Theme.of(context).textTheme.titleMedium
-                            ?.copyWith(fontWeight: FontWeight.bold),
+                        backgroundColor: controller.bgColor == null
+                            ? Theme.of(context).colorScheme.primary
+                            : ColorHelper.darken(controller.bgColor!),
+
                         padding: EdgeInsets.symmetric(
                           horizontal: context.width * 0.1,
-                          vertical: context.height * 0.02,
+                          vertical: context.height * 0.015,
                         ),
                       ),
-                      label: const Text('Another'),
-                      icon: Icon(Icons.refresh, size: context.width * 0.05),
+                      label: Text(
+                        'Another',
+                        style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                          fontWeight: FontWeight.bold,
+                          color: controller.bgColor != null
+                              ? ColorHelper.lighten(controller.bgColor!, 0.4)
+                              : Theme.of(context).colorScheme.onPrimary,
+                        ),
+                      ),
+                      icon: Icon(
+                        Icons.refresh,
+                        size: context.width * 0.05,
+                        color: controller.bgColor != null
+                            ? ColorHelper.lighten(controller.bgColor!, 0.2)
+                            : Theme.of(context).colorScheme.onPrimary,
+                      ),
                     ),
                   ],
                 ),
               ),
-
               Positioned(
                 top: context.height * 0.05,
                 right: context.width * 0.05,
