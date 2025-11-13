@@ -33,8 +33,6 @@ class BuildImageLoadingState extends StatelessWidget {
 
               Visibility(
                 visible: isError == null || isLoading == true,
-                maintainState: true,
-                maintainAnimation: true,
                 child: CircularProgressIndicator(
                   strokeWidth: 2,
                   constraints: BoxConstraints.tightFor(

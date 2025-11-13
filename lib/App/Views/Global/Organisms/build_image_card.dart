@@ -1,6 +1,7 @@
 import 'dart:math' as math;
 
 import 'package:aurora/App/Views/Global/Organisms/build_image_loading_state.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:get/get.dart';
@@ -36,7 +37,7 @@ class BuildImageCard extends StatelessWidget {
       height: size,
       clipBehavior: Clip.hardEdge,
       decoration: BoxDecoration(
-        color: Colors.transparent,
+        color: Theme.of(context).colorScheme.surfaceContainerHighest,
         borderRadius: BorderRadius.circular(context.width * 0.03),
         boxShadow: [
           BoxShadow(
@@ -46,39 +47,25 @@ class BuildImageCard extends StatelessWidget {
           ),
         ],
       ),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(context.width * 0.02),
-        child: AnimatedSwitcher(
-          duration: 450.ms,
-          switchInCurve: Curves.easeOutBack,
-          switchOutCurve: Curves.easeIn,
-          child: isLoading
-              ? const BuildImageLoadingState(isLoading: true)
-              : Image.network(
-                  activeImageUrl,
-                  fit: BoxFit.cover,
-                  width: double.infinity,
-                  height: context.width * 0.6,
-                  cacheWidth: 800,
-                  frameBuilder:
-                      (context, child, frame, wasSynchronouslyLoaded) {
-                        // fead in effect when image is loaded
-                        if (wasSynchronouslyLoaded) {
-                          return child;
-                        }
-                        return AnimatedOpacity(
-                          opacity: frame == null ? 0 : 1,
-                          duration: 800.ms,
-                          curve: Curves.easeIn,
-                          child: child,
-                        );
-                      },
-                  errorBuilder: (_, __, ___) {
-                    setErrorState.call();
-                    return const BuildImageLoadingState(isError: true);
-                  },
-                ),
-        ),
+      child: AnimatedSwitcher(
+        duration: 450.ms,
+        switchInCurve: Curves.easeOutBack,
+        switchOutCurve: Curves.easeIn,
+        child: isLoading
+            ? const BuildImageLoadingState(isLoading: true)
+            : CachedNetworkImage(
+                imageUrl: activeImageUrl,
+                width: double.infinity,
+                height: double.infinity,
+                fit: BoxFit.cover,
+                fadeInCurve: Curves.easeInOut,
+                fadeInDuration: 300.ms,
+                useOldImageOnUrlChange: true,
+                errorWidget: (context, url, error) {
+                  setErrorState.call();
+                  return const BuildImageLoadingState(isError: true);
+                },
+              ),
       ),
     );
 
