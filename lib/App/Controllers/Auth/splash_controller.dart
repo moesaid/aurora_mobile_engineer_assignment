@@ -10,11 +10,11 @@ class SplashController extends GetxController {
 
   @override
   void onInit() {
-    _intCount();
+    _intController();
     super.onInit();
   }
 
-  Future<void> _intCount() async {
+  Future<void> _intController() async {
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.leanBack);
 
     Future.delayed(const Duration(microseconds: 100), () async {

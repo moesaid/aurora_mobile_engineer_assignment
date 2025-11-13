@@ -11,7 +11,10 @@ class AppTheme {
 
   ThemeData darkThemeData() {
     return ThemeData(
-      colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFFED8A1E)),
+      colorScheme: ColorScheme.fromSeed(
+        seedColor: const Color(0xFFED8A1E),
+        brightness: Brightness.dark,
+      ),
       visualDensity: VisualDensity.adaptivePlatformDensity,
       fontFamily: 'Hellix-Medium',
     );

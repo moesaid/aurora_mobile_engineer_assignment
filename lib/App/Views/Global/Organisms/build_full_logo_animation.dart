@@ -45,7 +45,7 @@ class BuildFullLogoAnimation extends StatelessWidget {
               curve: Curves.easeInOut,
             ),
         // main logo
-        const BuildLogoOrbit(),
+        const BuildLogoOrbit(startColor: Colors.white, endColor: Colors.white),
       ],
     );
   }

@@ -1,8 +1,10 @@
 import 'package:aurora/App/Controllers/Auth/splash_controller.dart';
 import 'package:aurora/App/Views/Global/Molecules/typewriter_text.dart';
 import 'package:aurora/App/Views/Pages/Auth/Widgets/build_auth_apply_button.dart';
+import 'package:aurora/Routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:get/get.dart';
 
 class BuildAuthHeroSection extends StatelessWidget {
   const BuildAuthHeroSection({super.key, required this.controller});
@@ -38,9 +40,8 @@ class BuildAuthHeroSection extends StatelessWidget {
               context,
             ).textTheme.bodyLarge?.copyWith(color: Colors.white),
           ).animate().fadeIn(delay: 7000.ms, duration: 1500.ms),
-
           SizedBox(height: MediaQuery.of(context).size.height * 0.03),
-          const BuildAuthApplyButton(),
+          BuildAuthApplyButton(onTap: () => Get.offAndToNamed(AppRoutes.HOME)),
         ],
       ),
     );

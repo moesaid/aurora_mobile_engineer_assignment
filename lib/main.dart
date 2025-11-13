@@ -1,3 +1,4 @@
+import 'package:aurora/App/Controllers/Global/theme_controller.dart';
 import 'package:aurora/Config/Bindings/app_binding.dart';
 import 'package:aurora/Config/Exernal/app_initializer.dart';
 import 'package:aurora/Config/Theme/app_theme.dart';
@@ -20,15 +21,18 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      title: 'Aurora',
-      debugShowCheckedModeBanner: false,
-      theme: AppTheme().lightThemeData(),
-      darkTheme: AppTheme().darkThemeData(),
-      themeMode: Get.isDarkMode ? ThemeMode.dark : ThemeMode.light,
-      initialBinding: AppBinding(),
-      getPages: AppPages.pages,
-      defaultTransition: Transition.native,
+    return Obx(
+      () => GetMaterialApp(
+        title: 'Aurora',
+        debugShowCheckedModeBanner: false,
+        theme: AppTheme().lightThemeData(),
+        darkTheme: AppTheme().darkThemeData(),
+        themeMode: ThemeController.instance.themeMode,
+        initialBinding: AppBinding(),
+        getPages: AppPages.pages,
+        initialRoute: AppRoutes.SPLASH,
+        defaultTransition: Transition.native,
+      ),
     );
   }
 }

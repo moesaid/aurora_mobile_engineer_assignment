@@ -7,6 +7,8 @@ class BuildLogo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final color = this.color ?? Theme.of(context).colorScheme.inverseSurface;
+
     return Image.asset(
       'assets/images/logo-o.png',
       width: size ?? 100,
