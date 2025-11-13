@@ -89,9 +89,7 @@ class HomePage extends GetView<HomeController> {
                     Icons.brightness_4,
                     color: controller.bgColor == null
                         ? Theme.of(context).colorScheme.onSurface
-                        : controller.bgColor!.computeLuminance() > 0.5
-                        ? Colors.black
-                        : Colors.white,
+                        : ColorHelper.darken(controller.bgColor!, 0.4),
                   ),
                 ),
               ),
