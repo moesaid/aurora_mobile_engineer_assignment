@@ -51,8 +51,8 @@ class BuildImageCard extends StatelessWidget {
         duration: 450.ms,
         switchInCurve: Curves.easeOutBack,
         switchOutCurve: Curves.easeIn,
-        child: isLoading
-            ? const BuildImageLoadingState(isLoading: true)
+        child: isLoading || activeImageUrl.isEmpty
+            ? BuildImageLoadingState(isLoading: isLoading, isError: false)
             : CachedNetworkImage(
                 imageUrl: activeImageUrl,
                 width: double.infinity,

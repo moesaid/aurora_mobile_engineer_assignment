@@ -25,12 +25,11 @@ class BuildImageLoadingState extends StatelessWidget {
                     ? 'Failed to load image. \n Please try again.'
                     : isLoading == true
                     ? 'Loading image...'
-                    : 'No image available.',
+                    : 'No image available yet.',
                 textAlign: TextAlign.center,
                 style: Theme.of(context).textTheme.bodyMedium,
               ),
               SizedBox(height: context.height * 0.02),
-
               Visibility(
                 visible: isError == null || isLoading == true,
                 child: CircularProgressIndicator(
