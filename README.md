@@ -7,6 +7,13 @@ This simple flutter application satisfies the requirements outlined in the take-
 - Fetch random images from Unsplash API
 - Display images with proper loading and error states with caching in mind
 - Change background color based on the dominant color of the image
+- Toggle between light and dark modes
+- clean architecture using with MVC pattern inspired by uncle bob!
+- GetX for state management and dependency injection and routing
+- Get Storage for local storage of theme mode preference
+- Flutter Animate package for quick animation api usage
+- Audioplayers package for sound effects
+- Vibration package for haptic feedback
 
 ## Polish
 
