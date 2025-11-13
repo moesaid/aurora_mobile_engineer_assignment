@@ -36,7 +36,7 @@ class HomePage extends GetView<HomeController> {
                   ),
                   const SizedBox(height: 20),
                   FilledButton(
-                    onPressed: () => ThemeController.instance.toggleThemeMode(),
+                    onPressed: controller.fetchRandomImage,
                     child: const Text('Toggle Theme Mode'),
                   ),
                 ],
